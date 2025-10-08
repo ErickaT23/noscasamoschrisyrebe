@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chris & Rebe</title>
+  <meta title="¡Nos casamos Chris & Rebe!"/>
+  <meta name="description" content="Llego la hora de unir nuestras vidas para siempre."/>
+  <meta property="og:image" content="https://i.postimg.cc/6Qk9Qvzd/FOTOS-META-12.png" />
+  <link rel="preload" as="image" href="/images/sobre.svg">
+  <link rel="preload" as="image" href="/images/pareja.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Carattere&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Great+Vibes&display=swap" rel="stylesheet">  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" media="all">
+  <script type="module" src="config.js" defer></script>
+  <script type="module" src="loads.js" defer></script>
+  <script type="module" src="database.js" defer></script>
+  <script type="module" src="script.js" defer></script>
+  <script src="https://cdn.lordicon.com/lordicon.js" crossorigin="anonymous"></script>  
+</head>
+<body>
+
+    <!-- SOBRE -->
+    <section id="envelope">
+        <div id="envelope-top"></div>
+         <div id="seal">
+            <h2>C | R</h2> <!-- Tus iniciales -->
+        </div>
+        <div id="envelope-bottom"></div>
+    </section>
+  
+    <div class="main-content hidden">
+    <!-- Foto inicial -->
+    <section id="hero">
+      <img id="hero-image" alt="Foto inicial de la pareja">
+      <div class="hero-text">
+        <h1 id="couple-names"></h1>
+        <h2 id="wedding-date"></h2>
+      </div>
+    </section>
+
+    <!-- Sección de música -->
+    <section id="music-section">
+      <h2 id="song-title"></h2>
+      <button id="playPauseButton">Play</button>
+      <audio id="audioPlayer" loop preload="auto"></audio>
+      <div id="progress-container">
+        <input id="progress-bar" type="range" value="0" min="0" max="100">
+        <div class="time-display">
+          <span id="current-time">0:00</span> / <span id="duration-time">0:00</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de contador de fecha regresiva -->
+    <section id="countdown-section">
+        <div id="marriage-announcement" class="fade-in-element">
+            <h2>¡Nos casamos!</h2>
+            <p>El día en que nuestros corazones se unen para siempre ha llegado. Compartan nuestra alegría en nuestra boda.</p>
+          </div>          
+      <div id="countdown">
+        <div class="unit">
+          <span id="days" class="number">00</span>
+          <span class="label">Días</span>
+        </div>
+        <div class="unit">
+          <span id="hours" class="number">00</span>
+          <span class="label">Horas</span>
+        </div>
+        <div class="unit">
+          <span id="minutes" class="number">00</span>
+          <span class="label">Minutos</span>
+        </div>
+        <div class="unit">
+          <span id="seconds" class="number">00</span>
+          <span class="label">Segundos</span>
+        </div>
+      </div>
+
+      <div id="calendar-button" class="fade-in-element">
+        <button onclick="addToCalendar()">Agregar al calendario</button>
+      </div>
+      
+    </section>
+
+    <!-- Nombre del invitado -->
+    <section id="guest-name-section">
+      <p id="guest-name"></p>
+    </section>
+
+    <!-- Cantidad de pases -->
+    <section id="passes-section">
+      <p>Invitación válida por <span id="passes"></span></p>
+    </section>
+
+        <!-- Bendiciones -->
+      <section id="blessings-section">
+          <h2>Bendiciones</h2>
+            <p>Con la bendición de Dios y de nuestros padres</p>
+              <div class="blessings-parents">
+                <div class="parents-group">
+                  <h3>Padres de la Novio</h3>
+                  <p>Carlos Tellez y Rosita de Tellez</p>
+                </div>
+                <div class="parents-group">
+                 <h3>Padres del Novia</h3>
+                 <p>Erwin Tenas y Merari Lucero (+ Fallecida)</p>
+                </div>
+              </div>
+        </section>
+
+    <!-- Itinerario Ceremonia y Recepción -->
+    <section id="itinerary-section">
+      <div id="ceremony">
+        <img id="ceremony-image" alt="ceremony">
+        <h2>Ceremonia & Recepción</h2>
+        <p id="ceremony-place"></p>
+        <p id="ceremony-address"></p>
+        <p><span id="ceremony-date"></span> | <span id="ceremony-time"></span></p>
+        <button id="ceremony-map">Cómo llegar</button>
+      </div>
+    </section>
+
+    <section id="visual-itinerary-section">
+      <h2>Itinerario</h2>
+      <div class="timeline-center">
+    
+        <!-- Bloque izquierdo -->
+        <div class="timeline-block left">
+          <div class="timeline-content">
+            <div class="icon-time">
+              <lord-icon
+              src="https://cdn.lordicon.com/fshosubk.json"
+              trigger="loop"
+              stroke="light"
+              colors="primary:#fda63c,secondary:#FF7F50"
+              style="width:50px;height:50px;">
+            </lord-icon>
+              <span class="time">16:00 hrs</span>
+            </div>
+            <hr>
+            <p class="event">Ceremonia</p>
+          </div>
+        </div>
+    
+        <!-- Bloque derecho -->
+        <div class="timeline-block right">
+          <div class="timeline-content">
+            <div class="icon-time">
+              <lord-icon
+                src="https://cdn.lordicon.com/awclahcy.json"
+                trigger="loop"
+                stroke="light"
+                colors="primary:#fda63c,secondary:#FF7F50"
+                style="width:50px;height:50px;">
+              </lord-icon>
+              <span class="time">18:00 hrs</span>
+            </div>
+            <hr>
+            <p class="event">Cocktail</p>
+          </div>
+        </div>
+    
+        <!-- Bloque izquierdo -->
+        <div class="timeline-block left">
+          <div class="timeline-content">
+            <div class="icon-time">
+              <lord-icon
+              src="https://cdn.lordicon.com/bencqunn.json"
+              trigger="loop"
+              stroke="light"
+              colors="primary:#fda63c,secondary:#FF7F50"
+              style="width:50px;height:50px;">
+            </lord-icon>
+              <span class="time">18:30 hrs</span>
+            </div>
+            <hr>
+            <p class="event">Ingreso de Novios</p>
+          </div>
+        </div>
+    
+        <!-- Bloque derecho -->
+        <div class="timeline-block right">
+          <div class="timeline-content">
+            <div class="icon-time">
+              <lord-icon
+                src="https://cdn.lordicon.com/yayluyem.json"
+                trigger="loop"
+                stroke="light"
+                colors="primary:#fda63c,secondary:#FF7F50"
+                style="width:50px;height:50px;">
+              </lord-icon>
+              <span class="time">19:00 hrs</span>
+            </div>
+            <hr>
+            <p class="event">Baile</p>
+          </div>
+        </div>
+    
+        <!-- Bloque izquierdo -->
+        <div class="timeline-block left">
+          <div class="timeline-content">
+            <div class="icon-time">
+              <lord-icon
+                src="https://cdn.lordicon.com/yvgmrqny.json "
+                trigger="loop"
+                stroke="light"
+                colors="primary:#fda63c,secondary:#FF7F50"
+                style="width:50px;height:50px;">
+              </lord-icon>
+              <span class="time">20:00 hrs</span>
+            </div>
+            <hr>
+            <p class="event">Brindis</p>
+          </div>
+        </div>
+    
+        <!-- Bloque derecho -->
+        <div class="timeline-block right">
+          <div class="timeline-content">
+            <div class="icon-time">
+              <lord-icon
+              src="https://cdn.lordicon.com/uxkdjajd.json"
+              trigger="loop"
+              stroke="light"
+              colors="primary:#fda63c,secondary:#FF7F50"
+              style="width:50px;height:50px;">
+             </lord-icon>
+              <span class="time">20:30 hrs</span>
+            </div>
+            <hr>
+            <p class="event">Cena</p>
+          </div>
+        </div>
+
+        <!-- Bloque izquierdo -->
+        <div class="timeline-block left">
+          <div class="timeline-content">
+            <div class="icon-time">
+              <lord-icon
+                src="https://cdn.lordicon.com/jjqwsavk.json"
+                trigger="loop"
+                stroke="light"
+                colors="primary:#fda63c,secondary:#FF7F50"
+                style="width:50px;height:50px;">
+              </lord-icon>
+              <span class="time">20:45 hrs</span>
+            </div>
+            <hr>
+            <p class="event">Fiesta</p>
+          </div>
+        </div>
+
+                <!-- Bloque derecho -->
+        <div class="timeline-block right">
+          <div class="timeline-content">
+            <div class="icon-time">
+              <lord-icon
+              src="https://cdn.lordicon.com/ohcuigqh.json"
+              trigger="loop"
+              stroke="light"
+              colors="primary:#fda63c,secondary:#FF7F50"
+              style="width:50px;height:50px;">
+             </lord-icon>
+              <span class="time">23:00 hrs</span>
+            </div>
+            <hr>
+            <p class="event">Baile Sorpresa</p>
+          </div>
+        </div>
+
+        <!-- Bloque izquierdo -->
+        <div class="timeline-block left">
+          <div class="timeline-content">
+            <div class="icon-time">
+              <lord-icon
+                src="https://cdn.lordicon.com/xvidkckm.json"
+                trigger="loop"
+                stroke="light"
+                colors="primary:#fda63c,secondary:#FF7F50"
+                style="width:50px;height:50px;">
+              </lord-icon>
+              <span class="time">00:00 hrs</span>
+            </div>
+            <hr>
+            <p class="event">Despedida Novios</p>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+    
+    <!-- Lluvia de sobres -->
+    <section id="gift-section">
+      <img id="gift-image" alt="gift">
+      <h2>Lluvia de Sobres</h2>
+      <p id="abroad-gift-message"></p>
+
+    <button class="bank-toggle" onclick="toggleBankInfo()">Ver cuenta</button>
+
+     <!-- Info de cuentas desplegable -->
+     <div id="bank-info" class="bank-details">
+    <p><strong>Cuenta Bancaria:</strong><br>Christian Tellez y Rebeca Tenas<br>Cuenta Ahorro<br>Quetzales<br>No. 1110125890</p>
+     </div>
+     <!-- WhatsApp fuera del div -->
+      <p class="whatsapp-reminder">Mesas de Regalo</p>
+      <div class="whatsapp-buttons">
+    <button onclick="window.open('https://simangiftregistry.web.app/table/20006222', '_blank')">Bodas Siman</button>
+    <button onclick="window.open('https://www.cemaco.com/list/bodatellezhernandeztenaslucero', '_blank')">Bodas Cemaco</button>
+      </div>
+    </section>
+
+    <!-- Dress code -->
+    <section id="dresscode-section">
+        <img id="dresscode-image" alt="dresscode">
+         <h2>Dress Code</h2>
+
+      <div id="dresscode-details">
+          <p>Formal ¡No olvides llevar tu abrigo!</p>
+      </div>
+    </section>
+
+    <!-- Galería de fotos -->
+    <section id="gallery-section">
+      <h2>Galería de Fotos</h2>
+      <div id="gallery-container"></div>
+    </section>
+        <!-- Modal de imagen ampliada -->
+        <div id="gallery-modal" class="modal hidden">
+          <span id="modal-close">&times;</span>
+          <img id="modal-image" src="" alt="Foto ampliada" loading="lazy">
+        </div>
+
+    <!-- No niños -->
+    <section id="no-children-section">
+      <h2>Solo adultos</h2>
+      <p id="no-kids-policy"></p>
+    </section>
+
+    <!-- Confirmación -->
+    <section id="rsvp-section">
+       <img id="rsvp-image" alt="rsvp">
+      <h2>Confirmación</h2>
+      <p id="rsvp-message"></p>
+      <!-- Botón dinámico -->
+      <button id="confirm-button">Confirmar asistencia</button>   
+    </section>
+
+    <!-- Foto final -->
+    <section id="final-photo-section">
+      <img id="final-photo" alt="Foto final">
+    </section>
+
+    <!-- Frase final -->
+    <section id="final-message-section">
+      <p id="final-message"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div id="social-icons"></div>
+      <div class="footer-logo">
+        <img id="footer-logo" alt="Logo de la empresa">
+      </div>
+    </footer>    
+
+  </div>
+       
+</body>
+</html>
+
+
