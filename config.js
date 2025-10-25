@@ -2,40 +2,39 @@ export const eventData = {
     couple: {
       names: "Chris & Rebe",
       date: "07 . 03 . 2026",
-      heroImage: "/images/pareja.svg"
+      heroImage: "/images/pareja-iglesia.png",
     },
     song: {
       title: "Uña y Carne - Marcos Vidal",
-      file: "/UÑA Y CARNE (Marcos Vidal) pista tono A para hombre.mp3"
+      file: "/una.mp3"
     },
     ceremony: {
-      ceremonyImage:"/images/boda.svg",
       place: "Eventos Alux",
-      address: "San Lucas Sacatepéquez ",
-      date: "7 de Marzo",
+      address: "San Lucas, Sacatepéquez, kilómetro 27.5 de Carretera Interamericana.",
+      date: "7 de Marzo de 2026",
       time: "16:00 hrs",
       mapLink: "https://maps.app.goo.gl/AeX871grxj9XKPYi9?g_st=aw"
     },
 
     abroadGiftMessage: "Tu presencia es lo más especial para nosotros, si deseas bendecirnos con un obsequio puedes escoger entre las siguientes opciones o llevarlo el día de la boda.",
-    giftImage: "/images/gift.svg",
     
     dresscode: {
-      description: "Formal ¡No olvides llevar tu abrigo!",
+      description: "Formal: colores de verano. y debajo de esto Reservamos el color blanco y tonos de azul claro para los novios. ¡No olvides llevar tu abrigo!",
       image: "/images/dresscode.svg",
     },  
     gallery: [
-      "/images/V1.jpg",
-      "/images/V2.jpg",
-      "/images/V3.jpg",
-      "/images/V4.jpg",
+      "/images/foto1.jpeg",
+      "/images/foto2.jpeg",
+      "/images/foto3.jpeg",
+      "/images/foto4.png",
+      "/images/foto5.jpeg",
+      "/images/foto6.jpeg",
     ],
 
     noKidsPolicy: "Para disfrutar plenamente de esta celebración, nuestra boda será solo para adultos.",
-    finalPhoto: "/images/V3.jpg",
-    finalMessage: "Porque el amor se celebra con quienes más queremos, esperamos contar con su presencia en este día inolvidable.",
+    finalPhoto: "/images/foto-final.jpeg",
+    finalMessage: "Yo voy a hacer algo nuevo, y ya he empezado a hacerlo. Estoy abriendo un camino en el desierto y haré brotar ríos en tierra seca. - Isaías 43:19T LA",
     rsvp: {
-      rsvpImage: "/images/rsvp.svg",
       whatsapp: "https://wa.me/50236011737?text=Confirmo%20mi%20asistencia%20a%20la%20boda",
       email: "mailto:hello@thetwodesign.com"
     },

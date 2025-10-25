@@ -2,8 +2,8 @@
 :root {
     /* Colores base estilo acuarela */
     --background-color: white;
-    --text-color: #FF69B4;
-    --accent-color: #fda63c;
+    --text-color: #000000;;
+    --accent-color: #ff69b4;
     
     /* Tipografías */
     --font-title: "Carattere", cursive;
@@ -41,7 +41,7 @@
   
   h1, h2, h3 {
     font-family: var(--font-title);
-    color: var(--text-color);
+    color: #000000;
   }
   
   h1 {
@@ -102,13 +102,13 @@
     align-items: center;
     font-family: var(--font-title);
     font-size: 2rem;
-    color: var(--text-color);
     cursor: pointer;
     z-index: 2;
   }
   #seal h2{
     margin: 0;
     font-size: 2.5rem;
+    color: #000000;
   }
   /* Estado de apertura */
   .open #envelope-top {
@@ -124,13 +124,41 @@
   /* HERO (Foto inicial) */
   #hero {
     position: relative;
-    margin-top: 30px;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
   }
+  
   #hero img {
+    position: absolute;
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
+    object-fit: cover; /* Ajuste importante para cubrir toda la pantalla */
+    top: 0;
+    left: 0;
+    z-index: 1;
   }
+  
+  .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    color: white; /* O el color que combine con tu imagen */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Para mayor legibilidad */
+  }
+  
+  .hero-text h1 {
+    font-family: var(--font-title);
+    margin-bottom: 10px;
+  }
+  
+  .hero-text h2 {
+    font-family: var(--font-body);
+  }
+
   .hero-text {
     position: absolute;
     top: 50%;
@@ -141,10 +169,12 @@
     height: auto;
   }
   .hero-text h1 {
-    margin-top: -250px;
+    margin-top: -180px;
+    color: white;
   }
   .hero-text h2{
     margin-top: -20px;
+    color: white;
   }
   /* SECCIÓN MÚSICA */
   #music-section {
@@ -152,6 +182,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
+    margin-top: -20px;
   }
   
   button {
@@ -171,7 +202,10 @@
   button:hover {
     background: var(--text-color);
   }
-  
+  .lord-icon-style {
+    width: 200px;
+    height: 200px;
+  }
   /* PROGRESO DE MÚSICA */
   #progress-container {
     margin-top: 20px;
@@ -225,6 +259,37 @@
   background: #6b5c53;
   cursor: pointer;
 }
+#countdown-section {
+  position: relative;
+  background-image: url('/images/countdown.png'); /* 🔁 cambia esta ruta */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  color: white;
+}
+
+#countdown-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+#countdown-section > * {
+  position: relative;
+  z-index: 2; /* 👈 asegura que el contenido esté sobre el overlay */
+}
+
+#marriage-announcement h2,
+#marriage-announcement p,
+#calendar-button button {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
 
   /* SECCIÓN CONTADOR */
   #marriage-announcement {
@@ -235,13 +300,13 @@
   #marriage-announcement h2 {
     font-family: var(--font-title);
     font-size: var(--font-size-title);
-    color: var(--text-color);
+    color: white;
     margin-bottom: 10px;
   }
   #marriage-announcement p {
     font-family: var(--font-body);
     font-size: var(--font-size-text);
-    color: var(--text-color);
+    color: white;
     max-width: 600px;
     margin: 0 auto;
   }
@@ -253,7 +318,7 @@
     margin-top: 20px;
   }
   .unit {
-    background: var(transparent);
+    background: #ffffff3b;
     padding: 0;
     border-radius: 100%;
     width: 100px;
@@ -291,10 +356,10 @@
   }
   /* INVITADO y PASES */
   #guest-name-section {
-    background-color: #ffee8b;
+    background-color: #fda63c
   }
   #passes-section{
-    background-color: #fff9a5;
+    background-color: #fe9413;
   }
   #guest-name-section p, #passes-section p {
     font-size: 1.5rem;
@@ -417,7 +482,7 @@
     font-size: var(--font-size-text);
   }
   #dresscode-section img {
-    width: 100%;
+    width: 93%;
     height: auto;
     display: block;
   }
@@ -448,7 +513,6 @@
     box-shadow: var(--shadow);
     cursor: pointer;
     transition: transform 0.3s;
-    filter: grayscale(0.7);
   }
   #gallery-container img:hover {
     transform: scale(1.05);
@@ -627,16 +691,15 @@
   #final-photo {
     width: 100%;
     height: auto;
-    filter: grayscale(0.7)
   }
   
   /* FRASE FINAL */
   #final-message-section {
-    background-color: #f9f1c4;
+    background-color: #fda63c;
     margin-top: -10px;
   }
   #final-message-section p{
-    font-size: var(--font-size-subtitle);
+    font-size: 1.51rem;
   }
   
   /* FOOTER */
@@ -659,7 +722,7 @@
   }
 
   #footer {
-    background-color: #f2d112db;
+    background-color:  #fe9413;
     color: white;
     text-align: center;
     padding: 20px 0;

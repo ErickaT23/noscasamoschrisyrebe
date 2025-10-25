@@ -71,7 +71,6 @@ window.addToCalendar = function () {
 
   // --- Itinerario ---
   // --- Ceremonia ---
-  document.getElementById('ceremony-image').src = eventData.ceremony.ceremonyImage;
   document.getElementById('ceremony-place').innerText = eventData.ceremony.place;
   document.getElementById('ceremony-address').innerText = eventData.ceremony.address;
   document.getElementById('ceremony-date').innerText = eventData.ceremony.date;
@@ -79,7 +78,6 @@ window.addToCalendar = function () {
   document.getElementById('ceremony-map').onclick = () => window.open(eventData.ceremony.mapLink, '_blank');
 
   document.getElementById('abroad-gift-message').innerText = eventData.abroadGiftMessage;
-  document.getElementById('gift-image').src = eventData.giftImage; // ← si lo controlas desde config.js
   
 
   // --- Dress Code ---
@@ -137,8 +135,7 @@ modal.addEventListener('click', (e) => {
   document.getElementById('final-message').innerText = eventData.finalMessage;
 
   // --- Confirmaciones ---
-  document.getElementById('rsvp-image').src = eventData.rsvp.rsvpImage;
-  document.getElementById('rsvp-message').innerText = "Para nosotros es muy importante que confirmes tu asistencia lo antes posible, o bien indicarnos si no podrás acompañarnos.";
+  document.getElementById('rsvp-message').innerText = "Para nosotros es muy valiosa tu presencia, no olvides confirmar tu asistencia y la de tus acompañantes en caso aplique, antes del 07 de enero de 2026, de lo contrario no podremos reservar tu espacio.";
 
   // --- Footer (redes sociales) ---
   const socialIcons = document.getElementById('social-icons');
@@ -215,7 +212,7 @@ function addToCalendar() {
   const guest = window.guests.find(g => g.id === guestId);
   
   if (guest) {
-    const whatsappNumber = "50147399915";
+    const whatsappNumber = "50244809454";
     const message = `Gracias por los ${guest.passes} lugares reservados para nosotros, confirmamos nuestra asistencia. ${guest.name}. Nos vemos en su boda.`;
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
   
