@@ -97,8 +97,7 @@
 
         <!-- Bendiciones -->
       <section id="blessings-section">
-          <h2>Bendiciones</h2>
-            <p>Con la bendición de Dios y de nuestros padres</p>
+          <h2>Con la bendición de Dios y de nuestros padres</h2>
               <div class="blessings-parents">
                 <div class="parents-group">
                   <h3>Padres del Novio</h3>
@@ -311,7 +310,7 @@
     </lord-icon>
       <p id="abroad-gift-message"></p>
 
-    <button class="bank-toggle" onclick="toggleBankInfo()">Ver cuenta</button>
+    <button class="bank-toggle" onclick="toggleBankInfo()">Cuenta de banco</button>
 
      <!-- Info de cuentas desplegable -->
      <div id="bank-info" class="bank-details">
@@ -331,20 +330,31 @@
          <h2>Dress Code</h2>
 
       <div id="dresscode-details">
-          <p>Formal: colores de verano. y debajo de esto "Reservamos el color blanco y tonos de azul claro para los novios" debajo de esto "¡No olvides llevar tu abrigo!</p>
+          <p>Formal: colores de verano. ¡No olvides llevar tu abrigo!</p>
       </div>
     </section>
 
-    <!-- Galería de fotos -->
-    <section id="gallery-section">
-      <h2>Galería de Fotos</h2>
-      <div id="gallery-container"></div>
-    </section>
-        <!-- Modal de imagen ampliada -->
-        <div id="gallery-modal" class="modal hidden">
-          <span id="modal-close">&times;</span>
-          <img id="modal-image" src="" alt="Foto ampliada" loading="lazy">
-        </div>
+<!-- Galería de fotos tipo carrusel -->
+<section id="gallery-section">
+  <h2>Galería de Fotos</h2>
+
+  <div class="gallery-wrapper">
+    <button class="gallery-btn prev" aria-label="Anterior">&#10094;</button>
+    <div id="gallery-container" class="gallery-carousel"></div>
+    <button class="gallery-btn next" aria-label="Siguiente">&#10095;</button>
+  </div>
+</section>
+
+<!-- Modal -->
+<div id="gallery-modal" class="modal hidden" aria-hidden="true">
+  <div class="modal-backdrop"></div>
+  <div class="modal-content">
+    <button id="modal-close" class="modal-close" aria-label="Cerrar">&times;</button>
+    <img id="modal-image" alt="Foto ampliada" loading="lazy">
+  </div>
+</div>
+
+
 
     <!-- No niños -->
     <section id="no-children-section">

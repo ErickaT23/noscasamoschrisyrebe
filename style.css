@@ -482,9 +482,10 @@
     font-size: var(--font-size-text);
   }
   #dresscode-section img {
-    width: 93%;
+    width: 75%;
     height: auto;
     display: block;
+    margin: 0 auto; /* Centra la imagen horizontalmente */
   }
   #dresscode-inspo button{
     margin-top: 10px;
@@ -492,59 +493,85 @@
     font-size: var(--font-size-text);
   }
   /* GALERÍA */
-  #gallery-section {
-    background: transparent;
-    border-radius: 10px;
-  }
   #gallery-section h2{
     font-size: var(--font-size-title-small);
   }
-  #gallery-container {
+  .gallery-wrapper{
+    position: relative;
+    width: 90%;
+    max-width: 680px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  .gallery-carousel{
     display: flex;
-    flex-wrap: wrap;
+    transition: transform .4s ease-in-out;
+    will-change: transform;
+  }
+  
+  .gallery-slide{
+    min-width: 100%;     /* 👈 una sola imagen por “vista” */
+    display: flex;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
+    padding: 8px 0;
   }
-  #gallery-container img {
-    width: 350px;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
+  
+  .gallery-slide img{
+    width: 92%;
+    height: auto;
+    border-radius: 14px;
+    display: block;
+    cursor: zoom-in;
+  }
+  
+  /* Botones */
+  .gallery-btn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: rgba(0,0,0,.45);
+    color: #fff;
+    border: 0;
+    font-size: 28px;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
     cursor: pointer;
-    transition: transform 0.3s;
   }
-  #gallery-container img:hover {
-    transform: scale(1.05);
-  }
+  .gallery-btn:hover{ background: rgba(0,0,0,.7); }
+  .gallery-btn.prev{ left: 10px; }
+  .gallery-btn.next{ right: 10px; }
+  
   /* Modal */
-.modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  z-index: 9999;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
-}
-.modal img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-}
-#modal-close {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  font-size: 60px;
-  color: white;
-  cursor: pointer;
-  z-index: 10000;
-}
+  .modal.hidden{ display: none; }
+  .modal{
+    position: fixed; inset: 0; z-index: 50;
+    display: grid; place-items: center;
+  }
+  .modal-backdrop{
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,.65);
+    backdrop-filter: blur(2px);
+  }
+  .modal-content{
+    position: relative;
+    max-width: 96vw;
+    max-height: 90vh;
+  }
+  .modal-content img{
+    max-width: 96vw;
+    max-height: 90vh;
+    width: auto; height: auto;
+    border-radius: 10px;
+  }
+  .modal-close{
+    position: absolute; top: -10px; right: -10px;
+    width: 36px; height: 36px; border: 0; border-radius: 999px;
+    background: rgba(0,0,0,.8); color:#fff; font-size: 22px; cursor: pointer;
+  }  
 .hidden {
   display: none !important;
 }
@@ -768,7 +795,7 @@
   }
   
   #blessings-section h2 {
-    font-size: var(--font-size-title-small);
+    font-size: 2rem;
     margin-bottom: 10px;
   }
   
@@ -931,8 +958,8 @@
     }
     
     #gallery-container img {
-      width: 150px;
-      height: 150px;
+      width: 250px;
+      height: auto;
     }
     
     .unit {

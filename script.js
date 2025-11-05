@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //--- Botón para añadir al calendario ---
 window.addToCalendar = function () {
-  const calendarURL = "https://www.google.com/calendar/render?action=TEMPLATE&text=La%20boda%20de%20G%C3%A9nesis%20%26%20Jorge&dates=20250726/20250727&details=Misa%20Iglesia%20San%20Francisco%20(Zona%201)%20a%20las%2015:00%20hrs.%20Recepci%C3%B3n%20en%20Hotel%20Conquistador%20(Zona%204)%20a%20las%2018:00%20hrs.&location=Ciudad%20de%20Guatemala&sf=true&output=xml";
+  const calendarURL ="https://calendar.google.com/calendar/render?action=TEMPLATE&text=La+boda+de+Chris+y+Rebe&dates=20260307/20260308&location=Eventos+Alux%2C+Guatemala&details=Celebremos+juntos+el+gran+d%C3%ADa+de+Chris+y+Rebe%20%E2%9D%A4%EF%B8%8F";
   window.open(calendarURL, "_blank");
 }
 
@@ -91,40 +91,72 @@ document.getElementById('dresscode-details').innerHTML = `
 `;
 
 
-  // --- Galería de fotos ---
-  const galleryContainer = document.getElementById('gallery-container');
-  eventData.gallery.forEach(image => {
-    const img = document.createElement('img');
-    img.src = image;
-    img.alt = "Foto galería";
-    img.loading = "lazy"; // 👈 Aquí usas lazy loading
-    galleryContainer.appendChild(img);
-  });
+// ---- Render del carrusel (una imagen por slide)
+const galleryContainer = document.getElementById('gallery-container');
+galleryContainer.innerHTML = ''; // limpia si ya existía
 
-  // Modal de galería
+eventData.gallery.forEach(src => {
+  const slide = document.createElement('div');
+  slide.className = 'gallery-slide';
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = 'Foto galería';
+  img.loading = 'lazy';
+  slide.appendChild(img);
+  galleryContainer.appendChild(slide);
+});
+
+// ---- Lógica de carrusel
+let index = 0;
+const slides = Array.from(document.querySelectorAll('.gallery-slide'));
+const total = slides.length;
+const prevBtn = document.querySelector('.gallery-btn.prev');
+const nextBtn = document.querySelector('.gallery-btn.next');
+
+function showSlide(n){
+  if (n < 0) index = total - 1;
+  else if (n >= total) index = 0;
+  else index = n;
+  galleryContainer.style.transform = `translateX(${-index * 100}%)`;
+}
+prevBtn.addEventListener('click', () => showSlide(index - 1));
+nextBtn.addEventListener('click', () => showSlide(index + 1));
+showSlide(0);
+
+// Swipe (móvil)
+let startX = 0, deltaX = 0;
+galleryContainer.addEventListener('touchstart', (e)=> startX = e.touches[0].clientX, {passive:true});
+galleryContainer.addEventListener('touchmove',  (e)=> deltaX = e.touches[0].clientX - startX, {passive:true});
+galleryContainer.addEventListener('touchend',   ()=>{
+  if (Math.abs(deltaX) > 45) deltaX < 0 ? showSlide(index + 1) : showSlide(index - 1);
+  deltaX = 0;
+});
+
+// ---- Modal (click para ampliar)
 const modal = document.getElementById('gallery-modal');
-const modalImage = document.getElementById('modal-image');
+const modalImg = document.getElementById('modal-image');
 const modalClose = document.getElementById('modal-close');
 
-// Detectar clic en cualquier imagen de la galería
-document.querySelectorAll('#gallery-container img').forEach(img => {
-  img.addEventListener('click', () => {
-    modalImage.src = img.src;
+slides.forEach(slide=>{
+  slide.addEventListener('click', ()=>{
+    const img = slide.querySelector('img');
+    modalImg.src = img.src;
     modal.classList.remove('hidden');
+    modal.setAttribute('aria-hidden', 'false');
   });
 });
 
-// Cerrar modal al hacer clic en la X
-modalClose.addEventListener('click', () => {
+function closeModal(){
   modal.classList.add('hidden');
+  modal.setAttribute('aria-hidden', 'true');
+  modalImg.src = '';
+}
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', (e)=> {
+  if (e.target.classList.contains('modal-backdrop')) closeModal();
 });
+document.addEventListener('keydown', (e)=> { if (e.key === 'Escape') closeModal(); });
 
-// También cerrar al hacer clic fuera de la imagen
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.classList.add('hidden');
-  }
-});
 
 
   // --- No niños ---
@@ -135,7 +167,7 @@ modal.addEventListener('click', (e) => {
   document.getElementById('final-message').innerText = eventData.finalMessage;
 
   // --- Confirmaciones ---
-  document.getElementById('rsvp-message').innerText = "Para nosotros es muy valiosa tu presencia, no olvides confirmar tu asistencia y la de tus acompañantes en caso aplique, antes del 07 de enero de 2026, de lo contrario no podremos reservar tu espacio.";
+  document.getElementById('rsvp-message').innerText = "Para nosotros es muy valiosa tu presencia, no olvides confirmar tu asistencia antes del 07 de enero de 2026, de lo contrario no podremos reservar tu espacio.";
 
   // --- Footer (redes sociales) ---
   const socialIcons = document.getElementById('social-icons');
