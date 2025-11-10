@@ -33,7 +33,7 @@ export const eventData = {
 
     noKidsPolicy: "Para disfrutar plenamente de nuestra boda, dejaremos a los niños en casa.",
     finalPhoto: "/images/foto-final.jpeg",
-    finalMessage: "Yo voy a hacer algo nuevo, y ya he empezado a hacerlo. Estoy abriendo un camino en el desierto y haré brotar ríos en tierra seca. - Isaías 43:19T LA",
+    finalMessage: "Yo voy a hacer algo nuevo, y ya he empezado a hacerlo. Estoy abriendo un camino en el desierto y haré brotar ríos en tierra seca. - Isaías 43:19 TLA",
     rsvp: {
       whatsapp: "https://wa.me/50236011737?text=Confirmo%20mi%20asistencia%20a%20la%20boda",
       email: "mailto:hello@thetwodesign.com"
