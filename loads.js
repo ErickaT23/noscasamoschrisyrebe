@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const guest = guests.find(g => g.id === guestId);
 
   if (guest) {
-    let invitationText = `¡${guest.name}, `;
+    const nameBold = `<span class="guest-name-bold">${guest.name}</span>`;
+    let invitationText = `¡${nameBold}, `;
 
     if (guest.passes === 1) {
       invitationText += guest.gender === "femenino" ? "estás invitada!" : "estás invitado!";
@@ -17,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       invitationText += guest.gender === "femenino" ? "están invitadas!" : "están invitados!";
     }
 
-    document.getElementById('guest-name').textContent = invitationText;
+    document.getElementById('guest-name').innerHTML = invitationText; // 👈 usa innerHTML porque hay HTML
     document.getElementById('passes').textContent = `${guest.passes} ${guest.passes === 1 ? 'pase' : 'pases'}`;
     document.getElementById('guest-table').textContent = guest.table;
   } else {
@@ -26,5 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (invitationInfo) invitationInfo.style.display = 'none';
   }
 });
+
 
 window.guests = guests;

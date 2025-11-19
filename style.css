@@ -364,6 +364,13 @@
   #guest-name-section p, #passes-section p {
     font-size: 1.5rem;
   }
+  #passes-section span{
+    font-weight: bold;
+  }
+  .guest-name-bold {
+    font-weight: bold;
+  }
+  
   /* ITINERARIO */
   #itinerary-section {
     background: transparent;
