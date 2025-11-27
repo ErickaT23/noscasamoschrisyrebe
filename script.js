@@ -247,8 +247,8 @@ function addToCalendar() {
     const whatsappNumber = "50244809454";
   
     const message = guest.passes === 1
-      ? `Gracias por reservar ${guest.passes} lugar para mí, confirmo mi asistencia. ${guest.name}. Nos vemos en su boda.`
-      : `Gracias por los ${guest.passes} lugares reservados para nosotros, confirmamos nuestra asistencia. ${guest.name}. Nos vemos en su boda.`;
+      ? `Gracias por reservar ${guest.passes} lugar para mí, confirmo mi asistencia,  ${guest.name}. Nos vemos en su boda.`
+      : `Gracias por los ${guest.passes} lugares reservados para nosotros, confirmamos nuestra asistencia, ${guest.name}. Nos vemos en su boda.`;
   
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
   
