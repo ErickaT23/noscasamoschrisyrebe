@@ -238,21 +238,26 @@ function addToCalendar() {
     window.open(googleCalendarUrl, '_blank');
   }
   
-  //OPTIMIZAR
+  //RSVP
   const params = new URLSearchParams(window.location.search);
   const guestId = params.get("id");
   const guest = window.guests.find(g => g.id === guestId);
   
   if (guest) {
     const whatsappNumber = "50244809454";
-    const message = `Gracias por los ${guest.passes} lugares reservados para nosotros, confirmamos nuestra asistencia. ${guest.name}. Nos vemos en su boda.`;
+  
+    const message = guest.passes === 1
+      ? `Gracias por reservar ${guest.passes} lugar para mí, confirmo mi asistencia. ${guest.name}. Nos vemos en su boda.`
+      : `Gracias por los ${guest.passes} lugares reservados para nosotros, confirmamos nuestra asistencia. ${guest.name}. Nos vemos en su boda.`;
+  
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
   
     const confirmButton = document.getElementById('confirm-button');
-    confirmButton.onclick = () => {
-      window.open(whatsappURL, '_blank');
-    };
+    if (confirmButton) {
+      confirmButton.onclick = () => window.open(whatsappURL, '_blank');
+    }
   }
+  
   
 
 // --- CUENTAS ---
