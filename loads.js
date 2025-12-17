@@ -73,7 +73,11 @@ const guests = [
   { id: "72", name: "Elisa García", passes: 1, gender: "femenino" },
   { id: "73", name: "Linda Mazariegos", passes: 1, gender: "femenino" },
   { id: "74", name: "Linda Rodríguez", passes: 1, gender: "femenino" },
-  { id: "75", name: "Esposos Martínez", passes: 2, gender: "mixto" }
+  { id: "75", name: "Esposos Martínez", passes: 2, gender: "mixto" },
+  { id: "76", name: "Orfa y Ana María Girón", passes: 2, gender: "mixto" },
+  { id: "77", name: "Denisse Amaya", passes: 1, gender: "femenino" },
+  { id: "78", name: "Andrea Molina", passes: 1, gender: "femenino" }
+
 ];
 document.addEventListener("DOMContentLoaded", () => {
   const queryParams = new URLSearchParams(window.location.search);
